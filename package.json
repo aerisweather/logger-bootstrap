@@ -4,7 +4,7 @@
   "description": "Bootstraps logger configurations and services",
   "main": "lib/LoggerBootstrap.js",
   "scripts": {
-    "test": "npm test"
+    "test": "mocha --recursive ./test/spec"
   },
   "author": "Edan Schwartz <edanschwartz@gmail.com>",
   "license": "ISC",
