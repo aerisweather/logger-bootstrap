@@ -1,0 +1,11 @@
+{
+  "name": "logger-boostrap",
+  "version": "0.0.0",
+  "description": "Bootstraps logger configurations and services",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "Edan Schwartz <edanschwartz@gmail.com>",
+  "license": "ISC"
+}
