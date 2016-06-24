@@ -1,6 +1,6 @@
 # LoggerBootstrap
 
-Quickly setup logging services for your Node.js app.
+Bootstrap logging services and middleware for your Node.js app.
 
 ## Why?
 
@@ -40,7 +40,7 @@ const services = LoggerBootstrap({
 // You now have access to a winston logger
 // fully configured to write to the console, the file system,
 // and Loggly (optional)
-services.logger.log('My app has a service!');
+services.logger.log('My app has a logging service!');
 
 // You also have Express middleware 
 // for access logs, and error logs
