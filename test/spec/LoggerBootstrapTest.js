@@ -21,6 +21,9 @@ describe('LoggerBootstrap', () => {
 				appName: 'test-app',
 				envPrefix: 'TEST_APP',
 				env: {
+					// We have to specify this, because
+					// we may not have permissiont create dir in
+					// default /var/log/
 					TEST_APP_LOG_FILE_DIR: 'log'
 				}
 			});
@@ -30,6 +33,7 @@ describe('LoggerBootstrap', () => {
 			assert.partial(config.appLog.file, {
 				silent: false,
 				level: 'info',
+				filename: `${process.cwd()}/log/app.log`,
 				maxsize: 1024 * 1024 * 10,		// 10 MB
 				maxFiles: 10,
 				timestamp: true,
@@ -42,9 +46,10 @@ describe('LoggerBootstrap', () => {
 				timestamp: true
 			}, 'app log (console)');
 
-			assert.partial(config.accessLog.file, {
+			assert.partial(config.requestLog.file, {
 				silent: false,
 				level: 'info',
+				filename: `${process.cwd()}/log/access.log`,
 				maxsize: 1024 * 1024 * 10,		// 10 MB
 				maxFiles: 10,
 				timestamp: true,
@@ -78,16 +83,16 @@ describe('LoggerBootstrap', () => {
 					TEST_APP_LOG_CONSOLE_TIMESTAMP: '0',
 
 					// access log (file)
-					TEST_APP_ACCESS_LOG_FILE_ENABLED: '0',
-					TEST_APP_ACCESS_LOG_FILE_LEVEL: 'verbose',
-					TEST_APP_ACCESS_LOG_FILE_MAX_SIZE: 202,
-					TEST_APP_ACCESS_LOG_FILE_MAX_FILES: 6,
-					TEST_APP_ACCESS_LOG_FILE_TIMESTAMP: '0',
+					TEST_APP_REQUEST_LOG_FILE_ENABLED: '0',
+					TEST_APP_REQUEST_LOG_FILE_LEVEL: 'verbose',
+					TEST_APP_REQUEST_LOG_FILE_MAX_SIZE: 202,
+					TEST_APP_REQUEST_LOG_FILE_MAX_FILES: 6,
+					TEST_APP_REQUEST_LOG_FILE_TIMESTAMP: '0',
 
 					// access log (console)
-					TEST_APP_ACCESS_LOG_CONSOLE_ENABLED: '0',
-					TEST_APP_ACCESS_LOG_CONSOLE_LEVEL: 'silly',
-					TEST_APP_ACCESS_LOG_CONSOLE_TIMESTAMP: '1'
+					TEST_APP_REQUEST_LOG_CONSOLE_ENABLED: '0',
+					TEST_APP_REQUEST_LOG_CONSOLE_LEVEL: 'silly',
+					TEST_APP_REQUEST_LOG_CONSOLE_TIMESTAMP: '1'
 				}
 			});
 
@@ -96,6 +101,7 @@ describe('LoggerBootstrap', () => {
 			assert.partial(config.appLog.file, {
 				silent: false,
 				level: 'info',
+				filename: `${process.cwd()}/log/app.log`,
 				maxsize: 507,
 				maxFiles: 11,
 				timestamp: true,
@@ -108,16 +114,17 @@ describe('LoggerBootstrap', () => {
 				timestamp: false
 			}, 'app log (console)');
 
-			assert.partial(config.accessLog.file, {
+			assert.partial(config.requestLog.file, {
 				silent: true,
 				level: 'verbose',
+				filename: `${process.cwd()}/log/access.log`,
 				maxsize: 202,
 				maxFiles: 6,
 				timestamp: false,
 				tailable: true
 			}, 'access log (file)');
 
-			assert.partial(config.accessLog.console, {
+			assert.partial(config.requestLog.console, {
 				silent: true,
 				level: 'silly',
 				timestamp: true
@@ -148,7 +155,7 @@ describe('LoggerBootstrap', () => {
 				level: 'silly'
 			}, 'config.appLog.loggly');
 
-			assert.partial(config.accessLog.loggly, {
+			assert.partial(config.requestLog.loggly, {
 				silent: false,
 				subdomain: 'test-app',
 				token: 'super-secret-token',
