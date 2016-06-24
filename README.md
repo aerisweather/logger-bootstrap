@@ -1,10 +1,10 @@
 # LoggerBootstrap
 
-Bootstrap logging services and middleware for your Node.js app.
+Bootstraps [Winston](https://github.com/winstonjs/winston) logging services and middleware for your Node.js app.
 
 ## Why?
 
-I'm getting tired of bootstrapping logging services for every app I make.
+I'm getting tired of bootstrapping logging services for every app I work on.
 
 Here are my biggest pain points:
 
@@ -16,7 +16,7 @@ Here are my biggest pain points:
 `LoggerBootstrap` simplifies this by:
 * Creating standard logging services for app logs, error logs, and access logs
 * Loading in environment variables, using a standardized naming convention
-* Use sane defaults of logging config
+* Using sane defaults of logging config
 * Providing Express middleware
 
 ## Setup
@@ -59,7 +59,7 @@ app.use(services.errorResponseLogMiddleware);
 
 Each variable is prefixed with the `envPrefix` passed to `LoggerBootstrap`.
 
-Default environment variables (using the `MY_APP` as an example prefix):
+Default environment variables (using `MY_APP` as an example prefix):
 
 ```
 # All variables are optional, 
@@ -105,37 +105,38 @@ MY_APP_LOGGLY_SUBDOMAIN=
 
 ## LoggerBootstrap Options
 
-LoggerBootstrap accepts the following options:
+`LoggerBootstrap` accepts the following options:
 
 ```js
 // All options are optional, 
 // unless otherwise noted
 LoggerBootstrap({
-    // Determines the default log file location.
+    // Used to determine the default log file location
+    // eg. /var/log/map-app/
     // Also, added as a tag to all Loggly logs
     // (required)
-	appName: 'appName',
+	appName: 'my-app',
 	
 	// Environment variable prefix
 	// (required)
-	envPrefix: 'APP_NAME',
+	envPrefix: 'MY_APP',
 
 	// Use custom environment variables.
 	// Defaults to `process.env`
 	env: process.env,
 
-	// Defines additional meta data to be
+	// Define additional meta data to be
 	// passed along with request logs
 	requestLogMeta: (req, res) => ({})
 
-	// Defines a custom request log message
+	// Define a custom request log message
 	requestLogMessage: (logMeta) => '',
 
-	// Defines additional meta data to be
-	// passed with error response logs
+	// Define additional meta data to be
+	// passed along with error response logs
 	errorResponseLogMeta: (req, res) => ({})
 
-	// Defines a custom error response log message
+	// Define a custom error response log message
 	errorResponseLogMessage: (logMeta) => ''
 
 });
