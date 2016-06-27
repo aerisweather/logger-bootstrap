@@ -141,7 +141,9 @@ describe('LoggerBootstrap', () => {
 					TEST_APP_LOGGLY_LEVEL: 'silly',
 					TEST_APP_LOGGLY_TAGS: 'staging',
 					TEST_APP_LOGGLY_ENABLED: '1',
-					TEST_APP_LOGGLY_TOKEN: 'super-secret-token'
+					TEST_APP_LOGGLY_TOKEN: 'super-secret-token',
+					TEST_APP_LOGGLY_BUFFER_INTERVAL: 5,  // seconds
+					TEST_APP_LOGGLY_BUFFER_SIZE: 7
 				}
 			});
 			const config = loggerBoostrap.config;
@@ -152,7 +154,9 @@ describe('LoggerBootstrap', () => {
 				token: 'super-secret-token',
 				tags: ['staging', 'test-app', 'app-log'],
 				json: true,
-				level: 'silly'
+				level: 'silly',
+				bufferInterval: 5000,
+				bufferSize: 7
 			}, 'config.appLog.loggly');
 
 			assert.partial(config.requestLog.loggly, {
@@ -161,7 +165,9 @@ describe('LoggerBootstrap', () => {
 				token: 'super-secret-token',
 				tags: ['staging', 'test-app', 'access-log'],
 				json: true,
-				level: 'silly'
+				level: 'silly',
+				bufferInterval: 5000,
+				bufferSize: 7
 			}, 'config.appLog.loggly');
 		});
 
