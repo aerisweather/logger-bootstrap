@@ -4,6 +4,7 @@
        [`winston-loggly`](https://github.com/winston/winston-loggly)
        Adds support for bulk API requests
 * ADD: Support `*_LOGGLY_BUFFER_INTERVAL` and `*_LOGGLY_BUFFER_SIZE` env vars
+* ADD: Log to console, if any logger errors
 
 # v1.0.0
 
