@@ -97,6 +97,12 @@ MY_APP_LOGGLY_LEVEL=info
 # Note that the app name and log type (app-log or access-log) 
 # are automatically tagged to every log
 MY_APP_LOGGLY_TAGS=
+# Log messages will be buffered for this long
+# (seconds), before being sent in bulk to the Loggly API
+MY_APP_LOGGLY_BUFFER_INTERVAL
+# Max size of the loggly message buffer,
+# After which, logs will be immediately sent to the Loggly API
+MY_APP_LOGGLY_BUFFER_SIZE
 # required, if loggly is enabled
 MY_APP_LOGGLY_TOKEN=
 # required, if loggly is enabled
