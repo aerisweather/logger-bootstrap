@@ -140,7 +140,7 @@ LoggerBootstrap({
 
 	// Define additional meta data to be
 	// passed along with error response logs
-	errorResponseLogMeta: (req, res) => ({})
+	errorResponseLogMeta: (err, req, res) => ({})
 
 	// Define a custom error response log message
 	errorResponseLogMessage: (logMeta) => ''
