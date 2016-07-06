@@ -1,3 +1,11 @@
+# v1.1.1
+
+* MOD: Add timestamps to file logs
+* MOD: Request log timestamps is formatted differently, to match file logs
+       New: `TIMESTAMP - ...`
+       Old: `[TIMESTAMP] ...`
+* FIX: Fix error log formatter, when message is an error object
+
 # v1.1.0
 
 * MOD: Use [`winston-loggly-transport`](https://github.com/aerisweather/winston-loggly-transport) in place of
