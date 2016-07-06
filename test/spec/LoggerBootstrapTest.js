@@ -36,14 +36,12 @@ describe('LoggerBootstrap', () => {
 				filename: `${process.cwd()}/log/app.log`,
 				maxsize: 1024 * 1024 * 10,		// 10 MB
 				maxFiles: 10,
-				timestamp: true,
 				tailable: true
 			}, 'app log (file)');
 
 			assert.partial(config.appLog.console, {
 				silent: false,
 				level: 'info',
-				timestamp: true
 			}, 'app log (console)');
 
 			assert.partial(config.requestLog.file, {
@@ -52,14 +50,12 @@ describe('LoggerBootstrap', () => {
 				filename: `${process.cwd()}/log/access.log`,
 				maxsize: 1024 * 1024 * 10,		// 10 MB
 				maxFiles: 10,
-				timestamp: true,
 				tailable: true
 			}, 'access log (file)');
 
 			assert.partial(config.appLog.console, {
 				silent: false,
 				level: 'info',
-				timestamp: true
 			}, 'access log (console)');
 		});
 
@@ -104,14 +100,12 @@ describe('LoggerBootstrap', () => {
 				filename: `${process.cwd()}/log/app.log`,
 				maxsize: 507,
 				maxFiles: 11,
-				timestamp: true,
 				tailable: true
 			}, 'app log (file)');
 
 			assert.partial(config.appLog.console, {
 				silent: false,
 				level: 'verbose',
-				timestamp: false
 			}, 'app log (console)');
 
 			assert.partial(config.requestLog.file, {
@@ -120,14 +114,12 @@ describe('LoggerBootstrap', () => {
 				filename: `${process.cwd()}/log/access.log`,
 				maxsize: 202,
 				maxFiles: 6,
-				timestamp: false,
 				tailable: true
 			}, 'access log (file)');
 
 			assert.partial(config.requestLog.console, {
 				silent: true,
 				level: 'silly',
-				timestamp: true
 			}, 'access log (console)');
 		});
 
