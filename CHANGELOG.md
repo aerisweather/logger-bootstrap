@@ -1,3 +1,7 @@
+# v1.2.0
+
+* FIX: Don't create log directory unless we need it. If we are silent for all file logs, don't try to create one.
+
 # v1.1.2
 
 * MOD: Fix error message in ErrorResponseHandler
