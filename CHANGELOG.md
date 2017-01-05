@@ -1,3 +1,8 @@
+# v1.1.2
+
+* MOD: Fix error message in ErrorResponseHandler
+       (was stringifying errors as "[object Object]")
+
 # v1.1.1
 
 * MOD: Add timestamps to file logs
