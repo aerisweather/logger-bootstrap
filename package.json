@@ -12,7 +12,7 @@
     "fs-extra": "^0.30.0",
     "on-finished": "^2.3.0",
     "winston": "^2.2.0",
-    "winston-loggly-transport": "^1.0.0"
+    "winston-loggly-transport": "^1.0.3"
   },
   "devDependencies": {
     "mocha": "^2.5.3"
