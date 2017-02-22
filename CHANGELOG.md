@@ -1,3 +1,8 @@
+# v1.2.1
+
+* FIX: Update winston-loggly-transport
+       Remove npm-shrinkwrap, that was causing npm install issues
+
 # v1.2.0
 
 * FIX: Don't create log directory unless we need it. If we are silent for all file logs, don't try to create one.

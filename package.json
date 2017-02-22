@@ -1,6 +1,6 @@
 {
   "name": "logger-bootstrap",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Bootstraps logger configurations and services",
   "main": "lib/LoggerBootstrap.js",
   "scripts": {
