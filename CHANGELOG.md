@@ -1,3 +1,8 @@
+# v1.2.2
+
+* MOD: Assign names to all transports, so they can be removed by client, if they want.
+       eg. `loggerBootstrap.requestLogger.remove('loggly')`
+
 # v1.2.1
 
 * FIX: Update winston-loggly-transport
