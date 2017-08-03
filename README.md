@@ -80,6 +80,11 @@ MY_APP_LOG_CONSOLE_ENABLED=1
 MY_APP_LOG_CONSOLE_LEVEL=info
 MY_APP_LOG_CONSOLE_TIMESTAMP=1
 
+# Application Elasticsearch logs
+MY_APP_LOG_ELASTICSEARCH_ENABLED=0
+MY_APP_LOG_ELASTICSEARCH_LEVEL=info
+MY_APP_LOG_ELASTICSEARCH_INDEX=[app-name]
+
 # Request file logs (access.log)
 MY_APP_REQUEST_LOG_FILE_ENABLED=1
 MY_APP_REQUEST_LOG_FILE_LEVEL=info
@@ -89,6 +94,19 @@ MY_APP_REQUEST_LOG_CONSOLE_TIMESTAMP=1
 MY_APP_REQUEST_LOG_CONSOLE_ENABLED=1
 MY_APP_REQUEST_LOG_CONSOLE_LEVEL=info
 MY_APP_REQUEST_LOG_CONSOLE_TIMESTAMP=1
+
+# Request Elasticsearch logs
+MY_APP_REQUEST_LOG_ELASTICSEARCH_ENABLED=0
+MY_APP_REQUEST_LOG_ELASTICSEARCH_LEVEL=info
+MY_APP_REQUEST_LOG_ELASTICSEARCH_INDEX=[app-name]-requests
+
+
+# Elasticsearch configuration
+# Required only if elasticsearch is enabled
+ELASTICSEARCH_HOST=
+ELASTICSEARCH_PORT=
+ELASTICSEARCH_USER=
+ELASTICSEARCH_PASS=
 
 # Loggly logs (disabled by default)
 MY_APP_LOGGLY_ENABLED=0
@@ -143,7 +161,10 @@ LoggerBootstrap({
 	errorResponseLogMeta: (err, req, res) => ({}),
 
 	// Define a custom error response log message
-	errorResponseLogMessage: (logMeta) => ''
+	errorResponseLogMessage: (logMeta) => '',
+	
+	// Transform data, before sending to elasticsearch
+	elasticsearchTransformer: data => data
 
 });
 ```
