@@ -1,3 +1,7 @@
+# v1.3.0
+
+* MOD: Add support for Elasticsearch transport
+
 # v1.2.2
 
 * MOD: Assign names to all transports, so they can be removed by client, if they want.
