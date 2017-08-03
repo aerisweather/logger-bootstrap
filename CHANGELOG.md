@@ -1,3 +1,7 @@
+# v1.3.1
+
+* Fix missing default `indexPrefix` for ES transports
+
 # v1.3.0
 
 * MOD: Add support for Elasticsearch transport
