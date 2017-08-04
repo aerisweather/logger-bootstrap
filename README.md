@@ -51,6 +51,13 @@ app.use(services.requestLogMiddleware);
 
 // Set up a response error log (logs 500 errors)
 app.use(services.errorResponseLogMiddleware);
+
+// Create a new Elasticsearch logger, using bootstrapped options
+const myEsLogger = new winston.Logger({
+  transports: [services.ElasticsearchTransport({
+    indexPrefix: 'my-es-logger',
+  })]
+}); 
 ```
 
 ## Environment Reference
