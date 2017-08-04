@@ -1,3 +1,7 @@
+# v1.3.2
+
+* Expose `ElasticsearchTransport` factory
+
 # v1.3.1
 
 * Fix missing default `indexPrefix` for ES transports
