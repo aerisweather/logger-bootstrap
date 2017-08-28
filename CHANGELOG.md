@@ -1,3 +1,7 @@
+# v1.3.3
+
+* Support `ELASTICSEARCH_INDEX_SUFFIX` env var
+
 # v1.3.2
 
 * Expose `ElasticsearchTransport` factory
