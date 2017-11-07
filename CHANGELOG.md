@@ -1,3 +1,8 @@
+# v1.3.4
+
+* Lock into winston-elasticsearch version
+  https://github.com/vanthome/winston-elasticsearch/issues/40
+
 # v1.3.3
 
 * Support `ELASTICSEARCH_INDEX_SUFFIX` env var
