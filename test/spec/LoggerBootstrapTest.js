@@ -123,46 +123,6 @@ describe('LoggerBootstrap', () => {
 			}, 'access log (console)');
 		});
 
-		it('should configure loggly logs', () => {
-			const loggerBoostrap = LoggerBootstrap({
-				appName: 'test-app',
-				envPrefix: 'TEST_APP',
-				env: {
-					TEST_APP_LOG_FILE_DIR: 'log',
-					TEST_APP_LOGGLY_SUBDOMAIN: 'test-app',
-					TEST_APP_LOGGLY_LEVEL: 'silly',
-					TEST_APP_LOGGLY_TAGS: 'staging',
-					TEST_APP_LOGGLY_ENABLED: '1',
-					TEST_APP_LOGGLY_TOKEN: 'super-secret-token',
-					TEST_APP_LOGGLY_BUFFER_INTERVAL: 5,  // seconds
-					TEST_APP_LOGGLY_BUFFER_SIZE: 7
-				}
-			});
-			const config = loggerBoostrap.config;
-
-			assert.partial(config.appLog.loggly, {
-				silent: false,
-				subdomain: 'test-app',
-				token: 'super-secret-token',
-				tags: ['staging', 'test-app', 'app-log'],
-				json: true,
-				level: 'silly',
-				bufferInterval: 5000,
-				bufferSize: 7
-			}, 'config.appLog.loggly');
-
-			assert.partial(config.requestLog.loggly, {
-				silent: false,
-				subdomain: 'test-app',
-				token: 'super-secret-token',
-				tags: ['staging', 'test-app', 'access-log'],
-				json: true,
-				level: 'silly',
-				bufferInterval: 5000,
-				bufferSize: 7
-			}, 'config.appLog.loggly');
-		});
-
 	});
 
 });
