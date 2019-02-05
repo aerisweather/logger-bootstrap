@@ -1,6 +1,6 @@
 {
   "name": "logger-bootstrap",
-  "version": "2.0.0",
+  "version": "2.0.0-alpha1",
   "description": "Bootstraps logger configurations and services",
   "main": "lib/LoggerBootstrap.js",
   "scripts": {
@@ -12,6 +12,7 @@
     "fs-extra": "^7.0.1",
     "on-finished": "^2.3.0",
     "winston": "^3.2.1",
+    "winston-daily-rotate-file": "^3.6.0",
     "winston-elasticsearch": "^0.7.8"
   },
   "devDependencies": {
