@@ -1,3 +1,9 @@
+# 2.0.0
+
+* Breaking changes to how winston works and interfaces with plugins
+* Removed Loggly dependencies
+* Updated dependencies and elasticsearch writer to work with latest elasticsearch
+
 # v1.3.4
 
 * Lock into winston-elasticsearch version
