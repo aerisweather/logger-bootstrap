@@ -1,4 +1,5 @@
 const express = require('express');
+const winston = require('winston');
 const app = express();
 const port = 3000;
 
@@ -45,3 +46,14 @@ app.get('/error', (req, res, next) => {
 app.use(loggerBootstrap.errorResponseLogMiddleware);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+
+// Additional logger
+// Create a new Elasticsearch logger, using bootstrapped options
+const myEsLogger = new winston.createLogger({
+    transports: [loggerBootstrap.ElasticsearchTransport({
+        indexPrefix: 'testing-logger-bootstrap2',
+    })]
+});
+
+myEsLogger.info({hello: "world"});
+
