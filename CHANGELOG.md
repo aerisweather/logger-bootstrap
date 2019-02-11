@@ -3,6 +3,7 @@
 * Breaking changes to how winston works and interfaces with plugins
 * Removed Loggly dependencies
 * Updated dependencies and elasticsearch writer to work with latest elasticsearch
+* Add - Example script so we can see more of how this works.
 
 # v1.3.4
 

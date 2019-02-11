@@ -34,7 +34,7 @@ Then bootstrap your loggers:
 ```js
 const LoggerBootstrap = require('logger-bootstrap');
 
-const services = LoggerBootstrap({
+const logService = LoggerBootstrap({
 	appName: 'my-app',
 	envPrefix: 'MY_APP'
 });
@@ -42,25 +42,29 @@ const services = LoggerBootstrap({
 // You now have access to a winston logger
 // fully configured to write to the console, the file system,
 // and Loggly (optional)
-services.logger.log('My app has a logging service!');
+logService.logger.log('My app has a logging service!');
 
 // You also have Express middleware 
 // for access logs, and error logs
 const app = require('express')();
 
 // Set up an access log
-app.use(services.requestLogMiddleware);
+app.use(logService.requestLogMiddleware);
 
 // Set up a response error log (logs 500 errors)
-app.use(services.errorResponseLogMiddleware);
+app.use(logService.errorResponseLogMiddleware);
 
 // Create a new Elasticsearch logger, using bootstrapped options
-const myEsLogger = new winston.Logger({
-  transports: [services.ElasticsearchTransport({
-    indexPrefix: 'my-es-logger',
-  })]
-}); 
+const myEsLogger = new winston.createLogger({
+    transports: [loggerBootstrap.ElasticsearchTransport({
+        indexPrefix: 'testing-logger-bootstrap2',
+    })]
+});
+
+myEsLogger.info({hello: "world"});
 ```
+
+**Also see example.js for a runnable example**
 
 ## Environment Reference
 
