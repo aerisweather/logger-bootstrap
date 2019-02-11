@@ -1,6 +1,8 @@
 # LoggerBootstrap
 
-Bootstraps [Winston](https://github.com/winstonjs/winston) logging services and middleware for your Node.js app.
+Bootstraps [Winston](https://github.com/winstonjs/winston) logging services and middleware for your Node.js app. Using 
+Winston (the sort of defacto standard for logging in Node), creates some sane defaults for logging using simple
+environment variables.
 
 ## Why?
 
